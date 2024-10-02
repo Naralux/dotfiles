@@ -31,7 +31,12 @@ See the installation instructions [here](https://github.com/junegunn/fzf?tab=rea
 When the installer asks you if you want to add lines to the `.zshrc`, say no. The line is already part of the `.zshrc`.
 
 ### oh-my-posh
+
 See the installation instructions [here](https://ohmyposh.dev/).
+
+### NVChad
+
+See the installation instructions [here](https://nvchad.com/docs/quickstart/install).
 
 ## Installation
 
