@@ -2,7 +2,7 @@
 
 This repository contains the dotfiles for my preferred setup.
 
-## Requirements
+## Minimum Requirements
 
 Ensure you have the following installed on your system.
 
@@ -36,7 +36,7 @@ See the installation instructions [here](https://ohmyposh.dev/).
 
 ## Installation
 
-First, check out the dotfiles repo in your `$HOME` directory using git
+First, check out the dotfiles repo in your `$HOME` directory using git:
 
 ```
 $ cd $HOME
@@ -44,10 +44,12 @@ $ git clone git@github.com/Naralux/dotfiles.git
 $ cd dotfiles
 ```
 
-then use GNU stow to create symlinks for the packages you have installed e.g. zshrc
+Then use GNU Stow to create symlinks for the packages you have installed e.g. zsh:
 
 ```
 $ stow zsh
 ```
 
-Also see [this](https://brandon.invergo.net/news/2012-05-26-using-gnu-stow-to-manage-your-dotfiles.html) article on using GNU Stow for managing dotfiles.
+## More Info
+The GNU Stow [manual](https://www.gnu.org/software/stow/manual/stow.html).
+[Article](https://brandon.invergo.net/news/2012-05-26-using-gnu-stow-to-manage-your-dotfiles.html) on using GNU Stow for managing dotfiles.
