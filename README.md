@@ -2,7 +2,7 @@
 
 This repository contains the dotfiles for my preferred setup.
 
-## Requirements
+## Minimum Requirements
 
 Ensure you have the following installed on your system.
 
@@ -34,13 +34,9 @@ When the installer asks you if you want to add lines to the `.zshrc`, say no. Th
 
 See the installation instructions [here](https://ohmyposh.dev/).
 
-### NVChad
-
-See the installation instructions [here](https://nvchad.com/docs/quickstart/install).
-
 ## Installation
 
-First, check out the dotfiles repo in your `$HOME` directory using git
+First, check out the dotfiles repo in your `$HOME` directory using git:
 
 ```
 $ cd $HOME
@@ -48,8 +44,12 @@ $ git clone git@github.com/Naralux/dotfiles.git
 $ cd dotfiles
 ```
 
-then use GNU stow to create symlinks
+Then use GNU Stow to create symlinks for the packages you have installed e.g. zsh:
 
 ```
-$ stow .
+$ stow zsh
 ```
+
+## More Info
+The GNU Stow [manual](https://www.gnu.org/software/stow/manual/stow.html).
+[Article](https://brandon.invergo.net/news/2012-05-26-using-gnu-stow-to-manage-your-dotfiles.html) on using GNU Stow for managing dotfiles.
