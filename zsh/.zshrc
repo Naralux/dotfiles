@@ -61,14 +61,14 @@ alias ls='ls --color'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Node Version Manager (NVM)
-if ! command -v -- "nvm" > /dev/null 2>&1; then
+if command -v nvm > /dev/null ; then
     export NVM_DIR="$HOME/.nvm"
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
 
 # SDK Manager
-if ! command -v -- "sdk" > /dev/null 2>&1; then
+if command -v sdk > /dev/null ; then
     #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
     export SDKMAN_DIR="$HOME/.sdkman"
     [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
