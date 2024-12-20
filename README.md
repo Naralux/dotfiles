@@ -34,10 +34,6 @@ When the installer asks you if you want to add lines to the `.zshrc`, say no. Th
 
 See the installation instructions [here](https://ohmyposh.dev/).
 
-### NVChad
-
-See the installation instructions [here](https://nvchad.com/docs/quickstart/install).
-
 ## Installation
 
 First, check out the dotfiles repo in your `$HOME` directory using git
@@ -48,8 +44,10 @@ $ git clone git@github.com/Naralux/dotfiles.git
 $ cd dotfiles
 ```
 
-then use GNU stow to create symlinks
+then use GNU stow to create symlinks for the packages you have installed e.g. zshrc
 
 ```
-$ stow .
+$ stow zsh
 ```
+
+Also see [this](https://brandon.invergo.net/news/2012-05-26-using-gnu-stow-to-manage-your-dotfiles.html) article on using GNU Stow for managing dotfiles.
