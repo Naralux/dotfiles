@@ -18,7 +18,6 @@ zinit light Aloxaf/fzf-tab
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 zinit snippet OMZP::command-not-found
-zinit snippet OMZP::nvm
 
 # Load completions
 autoload -U compinit && compinit
@@ -51,9 +50,6 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
-zstyle ':omz:plugins:nvm' lazy yes
-zstyle ':omz:plugins:nvm' autoload yes
-
 # Aliases
 alias ls='ls --color'
 
@@ -61,11 +57,18 @@ alias ls='ls --color'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Node Version Manager (NVM)
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+if [[ -d $HOME/.nvm ]]; then
+ export NVM_DIR="$HOME/.nvm"
+ [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+ [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+ zinit snippet OMZP::nvm
+ zstyle ':omz:plugins:nvm' lazy yes
+ zstyle ':omz:plugins:nvm' autoload yes
+fi
 
 # SDK Manager
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+if [[ -d $HOMW/.sdkman ]]; then
+ export SDKMAN_DIR="$HOME/.sdkman"
+ [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+fi
