@@ -61,7 +61,34 @@ I think this is caused by the absence of a `.config` folder in a fresh Ubuntu WS
 > stow --no-folding -S zsh
 ```
 
+---
+
+## Instructions for additional tools
+
+### NvChad
+1. Install [Neovim](https://neovim.io/).
+2. Stow the `nvchad` package.
+
+### Papis - Document and bibliography manager
+1. Install [papis](https://github.com/papis/papis):
+
+```
+> python -m pip install --user papis
+```
+
+#### papis.nvim - Papis + Neovim integration
+1. Install requirements for [papis.nvim](https://github.com/jghauser/papis.nvim?tab=readme-ov-file#installation):
+
+```
+> sudo dnf install yq sqlite sqlite-devel luarocks
+```
+
+2. Stow the `papis.nvim` package.
+
+---
+
 ## More Info
 
 The GNU Stow [manual](https://www.gnu.org/software/stow/manual/stow.html).
+
 [Article](https://brandon.invergo.net/news/2012-05-26-using-gnu-stow-to-manage-your-dotfiles.html) on using GNU Stow for managing dotfiles.
