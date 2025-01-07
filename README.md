@@ -9,19 +9,19 @@ Ensure you have the following installed on your system.
 ### Git
 
 ```
-$ apt install git
+> apt install git
 ```
 
 ### Stow
 
 ```
-$ apt install stow
+> apt install stow
 ```
 
 ### zsh
 
 ```
-$ apt install zsh
+> apt install zsh
 ```
 
 ### fzf
@@ -32,24 +32,36 @@ When the installer asks you if you want to add lines to the `.zshrc`, say no. Th
 
 ### oh-my-posh
 
-See the installation instructions [here](https://ohmyposh.dev/).
+See the installation instructions [here](https://ohmyposh.dev/). Make sure oh-my-posh is installed in a folder that is owned by the user (e.g. `$HOME/.local/bin/`), otherwise you might run into permission problems when upgrading oh-my-posh.
 
 ## Installation
 
 First, check out the dotfiles repo in your `$HOME` directory using git:
 
 ```
-$ cd $HOME
-$ git clone git@github.com/Naralux/dotfiles.git
-$ cd dotfiles
+> cd $HOME
+> git clone git@github.com/Naralux/dotfiles.git
+> cd dotfiles
 ```
 
-Then use GNU Stow to create symlinks for the packages you have installed e.g. zsh:
+Then use GNU Stow to create symlinks for the packages you have installed e.g. zsh and nvim:
 
 ```
-$ stow zsh
+> stow -S zsh nvim
+```
+
+### WSL
+
+When using Ubuntu on WSL I found that stowing caused the entire `.config` folder to be symlinked instead of just the files.
+Programs that add files/folders to the `.config` directory (e.g. IntelliJ) end up modifying/adding files in the repository that should not be part of the repository.
+
+I think this is caused by the absence of a `.config` folder in a fresh Ubuntu WSL installation. In order to stow files without symlinking an entire directory, use the `--no-folding` option:
+
+```
+> stow --no-folding -S zsh
 ```
 
 ## More Info
+
 The GNU Stow [manual](https://www.gnu.org/software/stow/manual/stow.html).
 [Article](https://brandon.invergo.net/news/2012-05-26-using-gnu-stow-to-manage-your-dotfiles.html) on using GNU Stow for managing dotfiles.
