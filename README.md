@@ -4,24 +4,27 @@ This repository contains the dotfiles for my preferred setup.
 
 ## Minimum Requirements
 
+> [!NOTE]
+> Use the package manager appropriate for your system, or install packages manually.
+
 Ensure you have the following installed on your system.
 
 ### Git
 
 ```
-> apt install git
+$ apt install git
 ```
 
 ### Stow
 
 ```
-> apt install stow
+$ apt install stow
 ```
 
 ### zsh
 
 ```
-> apt install zsh
+$ apt install zsh
 ```
 
 ### fzf
@@ -39,15 +42,15 @@ See the installation instructions [here](https://ohmyposh.dev/). Make sure oh-my
 First, check out the dotfiles repo in your `$HOME` directory using git:
 
 ```
-> cd $HOME
-> git clone git@github.com/Naralux/dotfiles.git
-> cd dotfiles
+$ cd $HOME
+$ git clone git@github.com/Naralux/dotfiles.git
+$ cd dotfiles
 ```
 
-Then use GNU Stow to create symlinks for the packages you have installed e.g. zsh and nvim:
+Then use GNU Stow to create symlinks for the packages you have installed e.g. zsh and NvChad:
 
 ```
-> stow -S zsh nvim
+$ stow -S zsh nvchad
 ```
 
 ### WSL
@@ -58,7 +61,7 @@ Programs that add files/folders to the `.config` directory (e.g. IntelliJ) end u
 I think this is caused by the absence of a `.config` folder in a fresh Ubuntu WSL installation. In order to stow files without symlinking an entire directory, use the `--no-folding` option:
 
 ```
-> stow --no-folding -S zsh
+$ stow --no-folding -S zsh
 ```
 
 ---
@@ -73,14 +76,14 @@ I think this is caused by the absence of a `.config` folder in a fresh Ubuntu WS
 1. Install [papis](https://github.com/papis/papis):
 
 ```
-> python -m pip install --user papis
+$ python -m pip install --user papis
 ```
 
 #### papis.nvim - Papis + Neovim integration
 1. Install requirements for [papis.nvim](https://github.com/jghauser/papis.nvim?tab=readme-ov-file#installation):
 
 ```
-> sudo dnf install yq sqlite sqlite-devel luarocks
+$ sudo dnf install yq sqlite sqlite-devel luarocks
 ```
 
 2. Stow the `papis.nvim` package.
