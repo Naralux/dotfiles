@@ -5,7 +5,7 @@ This repository contains the dotfiles for my preferred setup.
 ## Minimum Requirements
 
 > [!NOTE]
-> Use the package manager appropriate for your system, or install packages manually.
+> Use the package manager appropriate for your system.
 
 Ensure you have the following installed on your system.
 
@@ -21,17 +21,11 @@ $ apt install git
 $ apt install stow
 ```
 
-### zsh
+### Zsh
 
 ```
 $ apt install zsh
 ```
-
-### fzf
-
-Since the packaged version of [fzf](https://github.com/junegunn/fzf) is out of date for quite a few platforms, it's installed manually into the `$HOME` directory.
-See the installation instructions [here](https://github.com/junegunn/fzf?tab=readme-ov-file#using-git).
-When the installer asks you if you want to add lines to the `.zshrc`, say no. The line is already part of the `.zshrc`.
 
 ### oh-my-posh
 
