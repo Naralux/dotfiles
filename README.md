@@ -1,37 +1,23 @@
 # Dotfiles
 
-This repository contains the dotfiles for my preferred setup.
+This repository contains the dotfiles for my preferred setup. The `.zshrc` file bootstraps the environment I prefer to work in. Configuration for other, optional, tools can be symlinked using GNU Stow.
 
-## Minimum Requirements
+## Installation
+
+### Minimum Requirements
 
 > [!NOTE]
 > Use the package manager appropriate for your system.
 
-Ensure you have the following installed on your system.
-
-### Git
+Ensure you have the following installed on your system: `git`, `stow` and `zsh`.
 
 ```
-$ apt install git
+$ apt install git stow zsh
 ```
 
-### Stow
+---
 
-```
-$ apt install stow
-```
-
-### Zsh
-
-```
-$ apt install zsh
-```
-
-### oh-my-posh
-
-See the installation instructions [here](https://ohmyposh.dev/). Make sure oh-my-posh is installed in a folder that is owned by the user (e.g. `$HOME/.local/bin/`), otherwise you might run into permission problems when upgrading oh-my-posh.
-
-## Installation
+## Usage
 
 First, check out the dotfiles repo in your `$HOME` directory using git:
 
@@ -41,10 +27,10 @@ $ git clone git@github.com/Naralux/dotfiles.git
 $ cd dotfiles
 ```
 
-Then use GNU Stow to create symlinks for the packages you have installed e.g. zsh and NvChad:
+Then use GNU Stow to create symlinks for the packages you wish to have configured, e.g. Zsh and Alacritty:
 
 ```
-$ stow -S zsh nvchad
+$ stow -S zsh alacritty
 ```
 
 ### WSL
@@ -60,11 +46,38 @@ $ stow --no-folding -S zsh
 
 ---
 
-## Instructions for additional tools
+## Configurations
 
-### NvChad
-1. Install [Neovim](https://neovim.io/).
-2. Stow the `nvchad` package.
+Outlined below are descriptions of what each Stow package aim to bootstrap.
+
+### zsh
+
+The `zsh/.zshrc` file sets up the following:
+
+- [Zinit](https://github.com/zdharma-continuum/zinit) package manager, including some packages and snippets I consider to be part of my baseline:
+    - [Fzf](https://github.com/junegunn/fzf)
+    - [Oh-my-posh](https://github.com/JanDeDobbeleer/oh-my-posh)
+    - [Mise](https://github.com/jdx/mise)
+- Completion styling
+- Aliasses
+- Keybinds
+- Miscellanious Options
+
+File `zsh/.config/oh-my-posh/zen.toml` describes the theme to be used by Oh-my-posh.
+
+### alacritty
+
+[Alacritty](https://github.com/alacritty/alacritty) must first be installed on the system.
+
+File `alacritty/.config/alacritty/alacritty.toml` describes the terminal styling used for Alacritty.
+
+### nvchad
+
+[NeoVim](https://github.com/neovim/neovim) must first be installed on your system.
+
+Folder `nvchad/.config/nvim` sets up NeoVim with the [NvChad](https://github.com/NvChad/NvChad) template.
+
+## Other
 
 ### Papis - Document and bibliography manager
 1. Install [papis](https://github.com/papis/papis):
@@ -74,13 +87,15 @@ $ python -m pip install --user papis
 ```
 
 #### papis.nvim - Papis + Neovim integration
-1. Install requirements for [papis.nvim](https://github.com/jghauser/papis.nvim?tab=readme-ov-file#installation):
+1. NeoVim must be installed.
+2. Papis must be installed.
+3. Install requirements for [papis.nvim](https://github.com/jghauser/papis.nvim?tab=readme-ov-file#installation):
 
 ```
 $ sudo dnf install yq sqlite sqlite-devel luarocks
 ```
 
-2. Stow the `papis.nvim` package.
+4. Stow the `papis.nvim` package.
 
 ---
 
