@@ -12,25 +12,27 @@ zinit pack"bgn-binary+keys" for fzf
 zinit light Aloxaf/fzf-tab
 
 # Oh-my-posh
-zinit as"command" lucid from"gh-r" for \
+zinit as"program" lucid from"gh-r" run-atpull for \
   id-as"oh-my-posh" mv"posh* -> oh-my-posh" \
   atclone"./oh-my-posh completion zsh > _oh-my-posh" \
-  atpull"%atclone" \
+  atpull"./oh-my-posh upgrade" \
   atload'eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh/zen.toml)"' \
   JanDeDobbeleer/oh-my-posh
 
 # Mise and usage (required for CLI completion)
+# https://mise.jdx.dev/tips-and-tricks.html#installation-via-zsh-zinit
 zinit as="command" lucid from="gh-r" for \
-    id-as="usage" \
-    atpull="%atclone" \
-    jdx/usage
+  id-as="usage" \
+  atpull="%atclone" \
+  jdx/usage
 
-zinit as"command" lucid from"gh-r" for \
-    id-as"mise" mv"mise* -> mise" \
-    atclone"./mise* completion zsh > _mise" \
-    atpull"%atclone" \
-    atload'eval "$(mise activate zsh)"' \
-    jdx/mise
+zinit as"program" lucid from"gh-r" for \
+  id-as"mise" mv"mise* -> mise" \
+  atclone"./mise* completion zsh > _mise" \
+  atpull"%atclone" \
+  atload'eval "$(mise activate zsh)"' \
+  jdx/mise
+
 
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
