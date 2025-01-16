@@ -1,6 +1,6 @@
 # Dotfiles
 
-This repository contains the dotfiles for my preferred setup. The `.zshrc` file bootstraps the environment I prefer to work in. Configuration for other, optional, tools can be symlinked using GNU Stow.
+This repository contains the dotfiles for my preferred setup. The `.zshrc` file bootstraps the environment I prefer to work in. It does this by utilising Zinit as the package manager for some essential tools. GNU Stow is used to manage the symlinks from this repository into the system's filesystem.
 
 ## Installation
 
@@ -14,6 +14,13 @@ Ensure you have the following installed on your system: `git`, `stow` and `zsh`.
 ```
 $ apt install git stow zsh
 ```
+
+Set zsh as your shell:
+```
+$ chsh -s $(which zsh)
+```
+
+For WSL there are some additional requirements, see [WSL](#WSL).
 
 ---
 
@@ -34,6 +41,8 @@ $ stow -S zsh alacritty
 ```
 
 ### WSL
+
+Ubuntu's WSL distro has some additional requirements, since the WSL version of the distro does not contain all the packages a full-fat Ubuntu distro does. Make sure you also have `jq` and `gcc` installed.
 
 When using Ubuntu on WSL I found that stowing caused the entire `.config` folder to be symlinked instead of just the files.
 Programs that add files/folders to the `.config` directory (e.g. IntelliJ) end up modifying/adding files in the repository that should not be part of the repository.
@@ -58,6 +67,7 @@ The `zsh/.zshrc` file sets up the following:
     - [Fzf](https://github.com/junegunn/fzf)
     - [Oh-my-posh](https://github.com/JanDeDobbeleer/oh-my-posh)
     - [Mise](https://github.com/jdx/mise)
+    - [NeoVim](https://neovim.io/)
 - Completion styling
 - Aliasses
 - Keybinds
@@ -72,8 +82,6 @@ File `zsh/.config/oh-my-posh/zen.toml` describes the theme to be used by Oh-my-p
 File `alacritty/.config/alacritty/alacritty.toml` describes the terminal styling used for Alacritty.
 
 ### nvchad
-
-[NeoVim](https://github.com/neovim/neovim) must first be installed on your system.
 
 Folder `nvchad/.config/nvim` sets up NeoVim with the [NvChad](https://github.com/NvChad/NvChad) template.
 

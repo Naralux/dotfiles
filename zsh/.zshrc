@@ -33,6 +33,14 @@ zinit as"program" lucid from"gh-r" for \
   atload'eval "$(mise activate zsh)"' \
   jdx/mise
 
+# NeoVim
+zinit \
+  as"null" \
+  from"gh-r" ver"stable" \
+  lucid \
+  nocompile \
+  sbin"nvim" \
+for neovim/neovim
 
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
