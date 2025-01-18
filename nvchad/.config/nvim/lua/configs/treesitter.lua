@@ -1,5 +1,8 @@
 local options = {
-  ensure_installed = { "rust" },
+  ensure_installed = {
+    -- "html",
+    -- "css",
+  },
 }
 
 return options
