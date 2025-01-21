@@ -1,6 +1,6 @@
 # Dotfiles
 
-This repository contains the dotfiles for my preferred setup. The `.zshrc` file bootstraps the environment I prefer to work in. It does this by utilising Zinit as the package manager for some essential tools. GNU Stow is used to manage the symlinks from this repository into the system's filesystem.
+This repository contains the dotfiles for my preferred setup split into several GNU Stow packages for individual (de-)activation. GNU Stow is used to manage the symlinks from this repository into the target's filesystem.
 
 ## Installation
 
@@ -44,10 +44,9 @@ $ stow -S zsh alacritty
 
 Ubuntu's WSL distro has some additional requirements, since the WSL version of the distro does not contain all the packages a full-fat Ubuntu distro does. Make sure you also have `jq` and `gcc` installed.
 
-When using Ubuntu on WSL I found that stowing caused the entire `.config` folder to be symlinked instead of just the files.
-Programs that add files/folders to the `.config` directory (e.g. IntelliJ) end up modifying/adding files in the repository that should not be part of the repository.
+When using Ubuntu on WSL I found that stowing caused the entire `.config` folder to be symlinked instead of just the files. This is because out-of-the-box WSL Ubuntu does not have a `$XDG_CONFIG_HOME` directory. Programs that add files/folders to the `.config` directory end up modifying/adding files in the repository that should not be part of the repository.
 
-I think this is caused by the absence of a `.config` folder in a fresh Ubuntu WSL installation. In order to stow files without symlinking an entire directory, use the `--no-folding` option:
+In order to stow files individually, without symlinking an entire directory, use the `--no-folding` option:
 
 ```
 $ stow --no-folding -S zsh
@@ -67,7 +66,6 @@ The `zsh/.zshrc` file sets up the following:
     - [Fzf](https://github.com/junegunn/fzf)
     - [Oh-my-posh](https://github.com/JanDeDobbeleer/oh-my-posh)
     - [Mise](https://github.com/jdx/mise)
-    - [NeoVim](https://neovim.io/)
 - Completion styling
 - Aliasses
 - Keybinds
@@ -83,7 +81,19 @@ File `alacritty/.config/alacritty/alacritty.toml` describes the terminal styling
 
 ### nvchad
 
+NeoVim must be installed. DIY for now.
+
 Folder `nvchad/.config/nvim` sets up NeoVim with the [NvChad](https://github.com/NvChad/NvChad) template.
+
+### tmux
+
+[Tmux](https://github.com/tmux/tmux) must be installed. DIY for now. [TPM](https://github.com/tmux-plugins/tpm) is installed automatically in `~/.tmux/plugins/tpm`.
+
+Folder `tmux/.config/tmux/tmux.conf` sets up tmux with some plugins and rebinds some keys to make usage more akin to vim.
+
+```
+$ stow -S tmux
+```
 
 ## Other
 
