@@ -95,6 +95,8 @@ Folder `tmux/.config/tmux/tmux.conf` sets up tmux with some plugins and rebinds 
 $ stow -S tmux
 ```
 
+Start a `tmux` session and press `C-Space + I` to install TPM plugins.
+
 ## Other
 
 ### Papis - Document and bibliography manager
