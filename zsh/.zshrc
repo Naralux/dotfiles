@@ -14,7 +14,6 @@ zinit light Aloxaf/fzf-tab
 # Oh-my-posh
 zinit as"program" lucid from"gh-r" for \
   id-as"oh-my-posh" mv"posh* -> oh-my-posh" \
-  atclone"./oh-my-posh completion zsh > _oh-my-posh" \
   atpull"%atclone" \
   atload'eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh/zen.toml)"' \
   JanDeDobbeleer/oh-my-posh
