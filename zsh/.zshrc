@@ -5,10 +5,17 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 source "${ZINIT_HOME}/zinit.zsh"
 
 ### Load Zinit plugins ###
-zinit light zdharma-continuum/zinit-annex-patch-dl
 zinit light zdharma-continuum/zinit-annex-bin-gem-node
 
-zinit pack"bgn-binary+keys" for fzf
+zinit for \
+    from'gh-r' \
+    sbin'* -> jq' \
+    nocompile \
+  @jqlang/jq
+
+zinit ice from"gh-r" fbin"fzf"
+zinit load junegunn/fzf
+
 zinit light Aloxaf/fzf-tab
 
 # Oh-my-posh
